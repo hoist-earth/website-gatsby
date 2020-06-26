@@ -1,6 +1,21 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { useAuth0 } from "@auth0/auth0-react"
+
+const CTA = () => {
+  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0()
+
+  if (isLoading || isAuthenticated) return null
+
+  return (
+    <div className="cta">
+      <button onClick={loginWithRedirect} className="button">Login <i className="icon-signin"></i></button>
+      <span>- or -</span>
+      <button onClick={loginWithRedirect} className="button">Sign Up Today <i className="icon-edit2"></i></button>
+    </div>
+  )
+}
 
 const IndexPage = () => {
 
@@ -11,11 +26,7 @@ const IndexPage = () => {
       <section id="intro">
         <h2>Fund effective climate change programs with a single payment</h2>
         <p>Whether you’re offsetting your annual family carbon footprint or your work-related travel impact, Hoist takes the hard work out of donating effectively.</p>
-        <div className="cta">
-          <button onClick={() => alert('auth')} className="button">Login <i className="icon-signin"></i></button>
-          <span>- or -</span>
-          <button onClick={() => alert('auth')} className="button">Sign Up Today <i className="icon-edit2"></i></button>
-        </div>
+        <CTA />
       </section>
 
       <section id="features">
