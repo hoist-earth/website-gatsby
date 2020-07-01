@@ -42,14 +42,17 @@ function SEO({ description, lang, meta, title }) {
         {
           property: `og:title`,
           content: title,
+          prefix: `og: http://ogp.me/ns#`,
         },
         {
           property: `og:description`,
           content: metaDescription,
+          prefix: `og: http://ogp.me/ns#`,
         },
         {
           property: `og:type`,
           content: `website`,
+          prefix: `og: http://ogp.me/ns#`,
         },
         {
           name: `twitter:card`,

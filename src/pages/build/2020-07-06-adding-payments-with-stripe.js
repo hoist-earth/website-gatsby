@@ -27,6 +27,7 @@ const Development = () => {
           }, {
             name: `og:image`,
             content: `${site.siteMetadata.siteUrl}/images/build/streams/2020-07-06.png`,
+            prefix: `og: http://ogp.me/ns#`,
           }} />
         <img className="fullwidth" src="/images/build/streams/2020-07-06.png" alt="Live Coding: Adding Payments with Stripe" />
         <section>
