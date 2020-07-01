@@ -24,6 +24,9 @@ const Development = () => {
           meta={{
             name: `twitter:image`,
             content: `${site.siteMetadata.siteUrl}/images/build/streams/2020-07-02.png`,
+          }, {
+            name: `og:image`,
+            content: `${site.siteMetadata.siteUrl}/images/build/streams/2020-07-02.png`,
           }} />
         <img className="fullwidth" src="/images/build/streams/2020-07-02.png" alt="Live Coding: Creating the Hoist API" />
         <section>
