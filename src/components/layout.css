@@ -71,7 +71,7 @@ section#intro h2 {
   transition-duration: 300ms;
 }
 section#intro p {
-  margin: 5rem auto;
+  margin: 4rem auto;
   width: 75%;
   transition-duration: 300ms;
 }
@@ -146,6 +146,18 @@ section#about img {
   box-shadow: 0 0 5px #999;
   border: 1px solid #555;
   padding: 1px;
+}
+
+.stream {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.stream img {
+  width: 100%;
+}
+
+img.fullwidth {
+  width: 100%;
 }
 
 footer {

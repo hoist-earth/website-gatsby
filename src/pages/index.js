@@ -1,18 +1,22 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { useAuth0 } from "@auth0/auth0-react"
+// import { useAuth0 } from "@auth0/auth0-react"
+import { Link } from "gatsby"
 
 const CTA = () => {
-  const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0()
+  // const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0()
 
-  if (isLoading || isAuthenticated) return null
+  // if (isLoading || isAuthenticated) return null
 
   return (
     <div className="cta">
-      <button onClick={loginWithRedirect} className="button">Login <i className="icon-signin"></i></button>
-      <span>- or -</span>
-      <button onClick={loginWithRedirect} className="button">Sign Up Today <i className="icon-edit2"></i></button>
+      {/* <button onClick={loginWithRedirect} className="button">Login <i className="icon-signin"></i></button> */}
+      {/* <span>- or -</span> */}
+      {/* <button onClick={loginWithRedirect} className="button">Sign Up Today <i className="icon-edit2"></i></button> */}
+      <h3>This platform is still under development.</h3>
+      <p>Want to join the development process? <Link to="/build" className="button">Build Hoist with us <i className="icon-laptop"></i></Link></p>
+      <p>Want to join the community and help define this platform? <a href="https://community.hoist.earth/" className="button" target="hoist-community">Join the Community <i className="icon-comments"></i></a></p>
     </div>
   )
 }
