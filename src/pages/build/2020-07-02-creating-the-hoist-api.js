@@ -18,10 +18,13 @@ const Development = () => {
   return (
     <>
       <Layout>
-        <SEO title="Creating the Hoist API | Build" meta={{
-          name: `twitter:image`,
-          content: `${site.siteMetadata.siteUrl}/images/build/streams/2020-07-02.png`,
-        }} />
+        <SEO
+          title="Creating the Hoist API | Build"
+          description="In this session, I'll be creating a new Express API from scratch, and creating new content types in Sanity in preparation for the joint stream on Monday with Thor Schaeff from Stripe."
+          meta={{
+            name: `twitter:image`,
+            content: `${site.siteMetadata.siteUrl}/images/build/streams/2020-07-02.png`,
+          }} />
         <img className="fullwidth" src="/images/build/streams/2020-07-02.png" alt="Live Coding: Creating the Hoist API" />
         <section>
           <h2>2nd July 2020 - Creating the Hoist API</h2>

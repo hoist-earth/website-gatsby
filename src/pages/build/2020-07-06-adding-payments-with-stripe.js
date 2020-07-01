@@ -18,17 +18,20 @@ const Development = () => {
   return (
     <>
       <Layout>
-        <SEO title="Adding Payments with Stripe | Build" meta={{
-          name: `twitter:image`,
-          content: `${site.siteMetadata.siteUrl}/images/build/streams/2020-07-06.png`,
-        }} />
+        <SEO
+          title="Adding Payments with Stripe | Build"
+          description="In this session, I'll be joined by Thor Schaeff from Stripe in order to add subscription payments to Hoist."
+          meta={{
+            name: `twitter:image`,
+            content: `${site.siteMetadata.siteUrl}/images/build/streams/2020-07-06.png`,
+          }} />
         <img className="fullwidth" src="/images/build/streams/2020-07-06.png" alt="Live Coding: Adding Payments with Stripe" />
         <section>
           <h2>6th July 2020 - Adding Payments with Stripe</h2>
           <p>
-            In this session, I'll be joined by <a href="https://twitter.com/thorwebdev">@thorwebdev</a>
+            In this session, I'll be joined by <a href="https://twitter.com/thorwebdev">Thor Schaeff</a>
             {" "}
-            from <a href="https://twitter.com/stripe">@stripe</a> in order to add subscription payments
+            from <a href="https://twitter.com/stripe">Stripe</a> in order to add subscription payments
             to Hoist.
           </p>
           <p>
