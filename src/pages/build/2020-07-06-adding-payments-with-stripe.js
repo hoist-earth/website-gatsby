@@ -44,8 +44,8 @@ const Development = () => {
           <ul>
             <li>add Stripe Checkout and the new customer portal to your Gatsby app;</li>
             <li>link your Auth0 users with Stripe customers;</li>
-            <li>pull current subscription information from the Stripa API; and</li>
-            <li>hwo to programatically cancel and manage your users subscriptions.</li>
+            <li>pull current subscription information from the Stripe API; and</li>
+            <li>programatically cancel and manage your users subscriptions.</li>
           </ul>
         </section>
       </Layout>
