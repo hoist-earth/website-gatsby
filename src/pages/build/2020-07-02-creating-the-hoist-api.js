@@ -27,6 +27,10 @@ const Development = () => {
           }} />
         <img className="fullwidth" src="/images/build/streams/2020-07-02.png" alt="Live Coding: Creating the Hoist API" />
         <section>
+          <p><a href="https://twitch.tv/bendechrai">
+            <span role="img" aria-label="calendar">📆</span>{" "}
+            Streaming live on Twitch: Thursday 2nd July at 1pm AEST
+          </a></p>
           <h2>2nd July 2020 - Creating the Hoist API</h2>
           <p>
             In this session, I'll be creating a new Express API from scratch, and creating new content
@@ -48,10 +52,6 @@ const Development = () => {
             <li>Created a Subscription Plan content type in Sanity; and</li>
             <li>Made space for a Stripe ID to link it to a subscription.</li>
           </ul>
-          <p><a href="https://twitch.tv/bendechrai" className="button">
-            <span role="img" aria-label="calendar">📆</span>{" "}
-            This will be streamed live on Twitch on Thursday 2nd July at 1pm AEST
-          </a></p>
         </section>
       </Layout>
     </>

@@ -148,12 +148,16 @@ section#about img {
   padding: 1px;
 }
 
-.stream {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.stream img {
-  width: 100%;
+@media screen and (min-width: 500px) {
+  .streams {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    align-items: flex-end;
+    gap: 1em;
+  }
+  .stream .description {
+    margin-bottom: 1em;
+  }
 }
 
 img.fullwidth {

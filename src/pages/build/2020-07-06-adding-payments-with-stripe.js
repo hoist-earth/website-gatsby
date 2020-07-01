@@ -27,6 +27,10 @@ const Development = () => {
           }} />
         <img className="fullwidth" src="/images/build/streams/2020-07-06.png" alt="Live Coding: Adding Payments with Stripe" />
         <section>
+          <p><a href="https://twitch.tv/bendechrai">
+            <span role="img" aria-label="calendar">📆</span>{" "}
+            Streaming live on Twitch: Monday 6th July at 1pm AEST
+          </a></p>
           <h2>6th July 2020 - Adding Payments with Stripe</h2>
           <p>
             In this session, I'll be joined by <a href="https://twitter.com/thorwebdev">Thor Schaeff</a>
@@ -43,10 +47,6 @@ const Development = () => {
             <li>pull current subscription information from the Stripa API; and</li>
             <li>hwo to programatically cancel and manage your users subscriptions.</li>
           </ul>
-          <p><a href="https://twitch.tv/bendechrai" className="button">
-            <span role="img" aria-label="calendar">📆</span>{" "}
-            This will be streamed live on Twitch on Monday 6th July at 1pm AEST
-          </a></p>
         </section>
       </Layout>
     </>
