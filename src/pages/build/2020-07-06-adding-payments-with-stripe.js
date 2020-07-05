@@ -21,14 +21,14 @@ const Development = () => {
         <SEO
           title="Adding Payments with Stripe | Build"
           description="In this session, I'll be joined by Thor Schaeff from Stripe in order to add subscription payments to Hoist."
-          meta={{
+          meta={[{
             name: `twitter:image`,
             content: `${site.siteMetadata.siteUrl}/images/build/streams/2020-07-06.png`,
           }, {
             name: `og:image`,
             content: `${site.siteMetadata.siteUrl}/images/build/streams/2020-07-06.png`,
             prefix: `og: http://ogp.me/ns#`,
-          }} />
+          }]} />
         <img className="fullwidth" src="/images/build/streams/2020-07-06.png" alt="Live Coding: Adding Payments with Stripe" />
         <section>
           <p><a href="https://twitch.tv/bendechrai">

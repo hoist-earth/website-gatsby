@@ -21,14 +21,14 @@ const Development = () => {
         <SEO
           title="Creating the Hoist API | Build"
           description="In this session, I'll be creating a new Express API from scratch, and creating new content types in Sanity in preparation for the joint stream on Monday with Thor Schaeff from Stripe."
-          meta={{
+          meta={[{
             name: `twitter:image`,
             content: `${site.siteMetadata.siteUrl}/images/build/streams/2020-07-02.png`,
           }, {
             name: `og:image`,
             content: `${site.siteMetadata.siteUrl}/images/build/streams/2020-07-02.png`,
             prefix: `og: http://ogp.me/ns#`,
-          }} />
+          }]} />
         <img className="fullwidth" src="/images/build/streams/2020-07-02.png" alt="Live Coding: Creating the Hoist API" />
         <section>
           <p><a href="https://twitch.tv/bendechrai">
