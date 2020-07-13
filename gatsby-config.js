@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `Hoist Earth`,
@@ -7,6 +9,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: process.env.GATSBY_SANITY_PROJECTID,
+        dataset: process.env.GATSBY_SANITY_DATASET,
+        token: process.env.SANITY_READ_TOKEN,
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
