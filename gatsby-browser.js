@@ -1,11 +1,11 @@
-import React from "react";
-import { Auth0Provider } from "@auth0/auth0-react";
-import { navigate } from "gatsby";
+import React from "react"
+import { Auth0Provider } from "@auth0/auth0-react"
+import { navigate } from "gatsby"
 
-const onRedirectCallback = (appState) => {
+const onRedirectCallback = appState => {
   // Use Gatsby's navigate method to replace the url
-  navigate(appState?.returnTo || '/', { replace: true });
-};
+  navigate(appState?.returnTo || "/", { replace: true })
+}
 
 export const wrapRootElement = ({ element }) => {
   return (
@@ -14,6 +14,7 @@ export const wrapRootElement = ({ element }) => {
       clientId={process.env.GATSBY_AUTH0_CLIENT_ID}
       redirectUri={window.location.origin}
       onRedirectCallback={onRedirectCallback}
+      audience={process.env.GATSBY_HOIST_API}
     >
       {element}
     </Auth0Provider>
