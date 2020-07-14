@@ -36,35 +36,10 @@ const Account = () => {
     })
   }
 
-  useEffect(() => {
-    getAccessTokenSilently().then(token => {
-      fetch(process.env.GATSBY_HOIST_API + "/user/getSubscriptions", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
-        },
-      })
-        .then(res => res.json())
-        .then(subscriptions => {
-          console.log(subscriptions.data[0].items.data[0])
-          // setSubscriptionName(subscriptions.data[0].items.data[0].)
-        })
-    })
-  }, [])
-
-  const [subscriptionName, setSubscriptionName] = useState(null)
-
-  const Subscriptions = () => {
-    if (!subscriptionName) {
-      return null
-    }
-  }
-
   return (
     <Layout>
       <h2>Account</h2>
       <p>Welcome to your account page.</p>
-      <Subscriptions />
       <p>
         <button onClick={createCustomer}>Create Customer</button>
         <button onClick={openPortal}>Open Portal</button>
