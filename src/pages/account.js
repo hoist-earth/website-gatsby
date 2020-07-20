@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import Layout from "../components/layout"
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react"
 
