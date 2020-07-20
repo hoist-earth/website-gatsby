@@ -166,14 +166,34 @@ section#about img {
 }
 
 @media screen and (min-width: 500px) {
-  .streams {
+  .episodes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     align-items: flex-end;
     gap: 1em;
   }
-  .stream .description {
+  .episode {
+    position: relative;
+  }
+  .episode .description {
     margin-bottom: 1em;
+  }
+  .episode.pending img {
+    filter: saturate(0);
+  }
+  .episode.pending .airDate {
+    position: absolute;
+    display: block;
+    background-color: #9fd6e4;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    top: 40%;
+    left: 5%;
+    padding: 1em;
+    rotate: -15deg;
+    font-weight: bold;
   }
 }
 
@@ -181,6 +201,19 @@ img.fullwidth {
   width: 100%;
 }
 
+.fullwidthIframe {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+.fullwidthIframe iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 section#programs {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -188,6 +221,17 @@ section#programs {
 }
 section#programs img {
   width: 100%;
+}
+
+nav.episodes {
+  display: flex;
+  justify-content: space-between;
+}
+section a {
+  text-decoration: none;
+}
+section a:hover {
+  background-color: #fbfbaa;
 }
 
 footer {
