@@ -3,9 +3,13 @@ import PropTypes from "prop-types"
 import React from "react"
 import "./header.css"
 import { useAuth0 } from "@auth0/auth0-react"
+import useFeatureFlags from "../hooks/use-feature-flags"
 
 const UserNav = () => {
   const { isLoading, isAuthenticated, logout, loginWithRedirect } = useAuth0()
+
+  const { featureAuth } = useFeatureFlags()
+  if (!featureAuth) return null
 
   if (isLoading) return null
 
@@ -41,6 +45,8 @@ const partlyActive = className => ({ isPartiallyCurrent }) => ({
 })
 
 const Header = () => {
+  const { featureAuth } = useFeatureFlags()
+
   return (
     <header>
       <div>
@@ -73,7 +79,7 @@ const Header = () => {
               Build
             </Link>
           </li>
-          <li>
+          <li hidden={!featureAuth}>
             <Link to="/account" activeClassName="active">
               Account
             </Link>

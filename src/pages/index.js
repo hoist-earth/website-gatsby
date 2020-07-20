@@ -3,7 +3,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { useAuth0 } from "@auth0/auth0-react"
 import { Link, graphql } from "gatsby"
-import imageUrlBuilder from '@sanity/image-url'
+import imageUrlBuilder from "@sanity/image-url"
+import useFeatureFlags from "../hooks/use-feature-flags"
 
 export const query = graphql`
   {
@@ -39,6 +40,7 @@ export const query = graphql`
 `
 
 const IndexPage = ({ data }) => {
+  const { featureAuth, featurePrograms } = useFeatureFlags()
 
   const builder = imageUrlBuilder({
     projectId: process.env.GATSBY_SANITY_PROJECTID,
@@ -47,6 +49,8 @@ const IndexPage = ({ data }) => {
 
   const CTA = () => {
     const { isLoading, isAuthenticated, loginWithRedirect } = useAuth0()
+
+    if (!featureAuth) return null
 
     if (isLoading || isAuthenticated) return null
 
@@ -99,7 +103,8 @@ const IndexPage = ({ data }) => {
       </section>
 
       <section id="programs">
-        {data.programs.edges.map(program => (
+        {featurePrograms &&
+          data.programs.edges.map(program => (
           <div className="program">
             <h3><Link to={"programs/" + program.node.slug.current}>
               {program.node.name}
