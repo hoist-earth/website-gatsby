@@ -57,7 +57,6 @@ const Build = ({ data }) => {
             in the live coding streams and watch the YouTube videos that outline
             the journey from start to end.
           </p>
-
           <h3>Upcoming Streams</h3>
           <div className="episodes">
             {streams.map(stream => (
