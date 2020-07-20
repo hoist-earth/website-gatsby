@@ -165,6 +165,12 @@ section#about img {
   padding: 1px;
 }
 
+p.airing.pending {
+  color: #888;
+}
+p.airing.aired [class^="icon-"] {
+  color: #e52d27;
+}
 @media screen and (min-width: 500px) {
   .episodes {
     display: grid;
