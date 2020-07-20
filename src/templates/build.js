@@ -39,6 +39,10 @@ const Episode = ({ data, pageContext }) => {
   const stream_date = moment(episode.stream_date).tz("Australia/Melbourne")
   const aired_date = moment(episode.aired_date).tz("Australia/Melbourne")
 
+  const pageTitle = streamDone
+    ? `Episode ${episode.episode} — ${episode.name}`
+    : `Live Coding: ${episode.name}`
+
   const timezone = moment.tz
     .zone("Australia/Melbourne")
     .abbr(moment(episode.stream_date))
@@ -48,7 +52,7 @@ const Episode = ({ data, pageContext }) => {
       return (
         <div className="fullwidthIframe">
           <iframe
-            title={"Live Coding: " + episode.name}
+            title={pageTitle}
             src={
               "https://www.youtube-nocookie.com/embed/" +
               episode.youtube_id +
@@ -66,7 +70,7 @@ const Episode = ({ data, pageContext }) => {
         <img
           className="fullwidth"
           src={episode.aired_image.asset.url}
-          alt={"Live Coding: " + episode.name}
+          alt={pageTitle}
         />
       )
 
@@ -74,7 +78,7 @@ const Episode = ({ data, pageContext }) => {
       <img
         className="fullwidth"
         src={episode.stream_image.asset.url}
-        alt={"Live Coding: " + episode.name}
+        alt={pageTitle}
       />
     )
   }
@@ -102,27 +106,38 @@ const Episode = ({ data, pageContext }) => {
   }
 
   const Airing = () => {
+    if (!streamDone) return null
     if (!episode.aired_date) return null
     const prefix = episodeAired
       ? "This episode aired on"
       : "This episode will air on"
     return (
-      <p>
-        {prefix} {aired_date.format("dddd Do MMMM [at] h.mma")} {timezone}.
+      <p className={"airing " + (episodeAired ? "aired" : "pending")}>
+        <i className="icon-youtube-play"></i> {prefix}{" "}
+        {aired_date.format("dddd Do MMMM [at] h.mma")} {timezone}.
       </p>
     )
   }
 
   const LinkOrEmptyElement = ({ episode, prepend, append }) => {
-    if (episode)
+    if (episode) {
+      const streamDone = moment().diff(episode.stream_date) > 0
+      if (streamDone)
+        return (
+          <Link to={"/build/" + episode.slug.current}>
+            {prepend}
+            Ep {episode.episode}: {episode.name}
+            {append}
+          </Link>
+        )
       return (
         <Link to={"/build/" + episode.slug.current}>
           {prepend}
-          Ep {episode.episode}: {episode.name}
+          Live Stream: {episode.name}
           {append}
         </Link>
       )
-
+    }
     return <div />
   }
 
@@ -150,10 +165,8 @@ const Episode = ({ data, pageContext }) => {
             <LinkOrEmptyElement episode={previous} prepend="&laquo; " />
             <LinkOrEmptyElement episode={next} append=" &raquo;" />
           </nav>
+          <h2>{pageTitle}</h2>
           <StreamLink />
-          <h2>
-            Episode {episode.episode} &mdash; {episode.name}
-          </h2>
           <Airing />
           <BlockContent blocks={episode._rawOutline} />
         </section>

@@ -83,6 +83,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             name
             episode
+            stream_date
             slug {
               current
             }
