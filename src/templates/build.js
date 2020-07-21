@@ -148,11 +148,11 @@ const Episode = ({ data, pageContext, location }) => {
           location={location}
           meta={[
             {
-              name: `twitter:image`,
+              property: `twitter:image`,
               content: SocialMediaImage(),
             },
             {
-              name: `og:image`,
+              property: `og:image`,
               content: SocialMediaImage(),
               prefix: `og: http://ogp.me/ns#`,
             },
