@@ -29,7 +29,7 @@ export const query = graphql`
   }
 `
 
-const Episode = ({ data, pageContext }) => {
+const Episode = ({ data, pageContext, location }) => {
   const { episode } = data
   const { previous, next } = pageContext
 
@@ -145,6 +145,7 @@ const Episode = ({ data, pageContext }) => {
         <SEO
           title={episode.name + " | Build"}
           description={episode.description}
+          location={location}
           meta={[
             {
               name: `twitter:image`,
