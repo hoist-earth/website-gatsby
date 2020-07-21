@@ -90,31 +90,29 @@ const Episode = ({ data, pageContext }) => {
     return episode.stream_image.asset.url
   }
 
-  const StreamLink = () => {
-    if (streamDone) return null
-    return (
-      <p>
-        <a href="https://twitch.tv/bendechrai">
-          <span role="img" aria-label="calendar">
-            📆
-          </span>{" "}
-          Streaming live on Twitch:{" "}
-          {stream_date.format("dddd Do MMMM [at] h.mma")} {timezone}
-        </a>
-      </p>
-    )
-  }
-
   const Airing = () => {
-    if (!streamDone) return null
+    if (!streamDone)
+      return (
+        <p className="airing">
+          <i className="icon-twitch"></i>
+          <a href="https://twitch.tv/bendechrai">
+            Streaming live on Twitch:{" "}
+            {stream_date.format("dddd Do MMMM [at] h.mma")} {timezone}
+          </a>
+        </p>
+      )
+
     if (!episode.aired_date) return null
+
     const prefix = episodeAired
       ? "This episode aired on"
       : "This episode will air on"
     return (
       <p className={"airing " + (episodeAired ? "aired" : "pending")}>
-        <i className="icon-youtube-play"></i> {prefix}{" "}
-        {aired_date.format("dddd Do MMMM [at] h.mma")} {timezone}.
+        <i className="icon-youtube-play"></i>
+        <span>
+          {prefix} {aired_date.format("dddd Do MMMM [at] h.mma")} {timezone}.
+        </span>
       </p>
     )
   }
@@ -166,7 +164,6 @@ const Episode = ({ data, pageContext }) => {
             <LinkOrEmptyElement episode={next} append=" &raquo;" />
           </nav>
           <h2>{pageTitle}</h2>
-          <StreamLink />
           <Airing />
           <BlockContent blocks={episode._rawOutline} />
         </section>

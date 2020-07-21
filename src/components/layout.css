@@ -165,11 +165,22 @@ section#about img {
   padding: 1px;
 }
 
+p.airing {
+  display: flex;
+  align-items: center;
+}
 p.airing.pending {
   color: #888;
 }
-p.airing.aired [class^="icon-"] {
+p.airing [class^="icon-"] {
+  font-size: 1.6em;
+  margin-right: 0.3em;
+}
+[class^="icon-youtube"] {
   color: #e52d27;
+}
+[class^="icon-twitch"] {
+  color: #9146ff;
 }
 @media screen and (min-width: 500px) {
   .episodes {
