@@ -7,27 +7,29 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import './layout.css'
+import "./layout.css"
 import Header from "./header"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, fourohfour = false }) => {
   return (
-    <div id="wrapper">
+    <div id="outerWrapper" className={fourohfour ? "fourohfour" : ""}>
+      <div id="wrapper">
+        <Header />
 
-      <Header/>
+        {children}
 
-      {children}
-      
-      <footer id="footer">
-        <div id="copyrights">
-          <div className="container clearfix">
-            <div className="col_half">
-              Copyrights © 2020 All Rights Reserved by Lunar Productions Pty Ltd.<br />
+        <footer id="footer">
+          <div id="copyrights">
+            <div className="container clearfix">
+              <div className="col_half">
+                Copyrights © 2020 All Rights Reserved by Lunar Productions Pty
+                Ltd.
+                <br />
+              </div>
             </div>
           </div>
-        </div>
-      </footer>
-
+        </footer>
+      </div>
     </div>
   )
 }

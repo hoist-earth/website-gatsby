@@ -16,7 +16,7 @@ export const query = graphql`
   }
 `
 
-const Plan = ({ data }) => {
+const Plan = ({ data, location }) => {
   const { getAccessTokenSilently } = useAuth0()
 
   const subscribe = plan => {
@@ -44,7 +44,7 @@ const Plan = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={data.plan.name + " | Plans"} />
+      <SEO title={data.plan.name + " | Plans"} location={location} />
       <section>
         <h2>{data.plan.name}</h2>
         <p>{data.plan.description}</p>

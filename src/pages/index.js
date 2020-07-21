@@ -39,7 +39,7 @@ export const query = graphql`
   }
 `
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const { featureAuth, featurePrograms } = useFeatureFlags()
 
   const builder = imageUrlBuilder({
@@ -69,7 +69,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Home" location={location} />
       <section id="intro">
         <h2>Fund effective climate change programs with a single payment</h2>
         <p>

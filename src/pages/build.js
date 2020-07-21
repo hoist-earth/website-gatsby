@@ -34,7 +34,7 @@ export const query = graphql`
   }
 `
 
-const Build = ({ data }) => {
+const Build = ({ data, location }) => {
   const streams = data.episodes.edges.filter(episode => {
     return moment().diff(episode.node.stream_date) < 0
   })
@@ -47,7 +47,7 @@ const Build = ({ data }) => {
   return (
     <>
       <Layout>
-        <SEO title="Build" />
+        <SEO title="Build" location={location} />
         <section>
           <h2>Build Hoist with us</h2>
           <p>
