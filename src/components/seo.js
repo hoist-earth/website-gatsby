@@ -61,19 +61,19 @@ function SEO({ description, lang, meta, title, location }) {
           prefix: `og: http://ogp.me/ns#`,
         },
         {
-          name: `twitter:card`,
+          property: `twitter:card`,
           content: `summary_large_image`,
         },
         {
-          name: `twitter:creator`,
+          property: `twitter:creator`,
           content: site.siteMetadata.author,
         },
         {
-          name: `twitter:title`,
+          property: `twitter:title`,
           content: title,
         },
         {
-          name: `twitter:description`,
+          property: `twitter:description`,
           content: metaDescription,
         },
       ].concat(meta)}
