@@ -7,18 +7,6 @@ import AuthRedirectMessage from "../components/auth-redirect-message"
 const Account = ({ location }) => {
   const { user, getAccessTokenSilently } = useAuth0()
 
-  const createCustomer = () => {
-    getAccessTokenSilently().then(token => {
-      fetch(process.env.GATSBY_HOIST_API + "/user/manifestStripeCustomer", {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      })
-        .then(res => res.json())
-        .then(json => console.log(json))
-    })
-  }
-
   const openPortal = () => {
     getAccessTokenSilently().then(token => {
       fetch(process.env.GATSBY_HOIST_API + "/portal/create", {
@@ -41,13 +29,14 @@ const Account = ({ location }) => {
   return (
     <Layout>
       <SEO title="Account" location={location} />
+      <section>
         <h2>Account</h2>
         <p>Welcome to your account page.</p>
         <p>
-        <button onClick={createCustomer}>Create Customer</button>
           <button onClick={openPortal}>Open Portal</button>
         </p>
         <pre>{JSON.stringify(user, null, 4)}</pre>
+      </section>
     </Layout>
   )
 }
