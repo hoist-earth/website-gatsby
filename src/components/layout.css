@@ -9,6 +9,9 @@ body {
   background-image: url(/images/background.png);
   background-attachment: fixed;
 }
+main {
+  min-height: 30vh;
+}
 
 h1,
 h2,
@@ -260,14 +263,14 @@ footer {
   text-align: center;
 }
 
-.fourohfour {
+.blurpage {
   filter: saturate(0.3) blur(5px);
 }
-.fourohfour section#intro {
+.blurpage section#intro {
   height: calc(100vh - 280px);
   min-height: 300px;
 }
-.fourohfour-overlay {
+.blurpage-overlay {
   min-height: 250px;
   position: absolute;
   top: 150px;
@@ -279,6 +282,22 @@ footer {
   justify-content: center;
   text-align: center;
 }
-.fourohfour-overlay h1 {
+.blurpage-overlay h1 {
   font-size: 5em;
+}
+
+.redirecting {
+  display: flex;
+  height: 99vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.preloader {
+  display: flex;
+  min-height: inherit;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
 }

@@ -4,6 +4,7 @@ import React from "react"
 import "./header.css"
 import { useAuth0 } from "@auth0/auth0-react"
 import useFeatureFlags from "../hooks/use-feature-flags"
+import CheckRole from "./check-role"
 
 const UserNav = () => {
   const { isLoading, isAuthenticated, logout, loginWithRedirect } = useAuth0()
@@ -16,6 +17,17 @@ const UserNav = () => {
   if (isAuthenticated)
     return (
       <ul>
+        <CheckRole roles={["admin"]} silent={true}>
+          <li>
+            <Link
+              to="/admin"
+              getProps={partlyActive()}
+              activeClassName="active"
+            >
+              Admin
+            </Link>
+          </li>
+        </CheckRole>
         <li>
           <button
             className="button"

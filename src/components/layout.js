@@ -10,14 +10,12 @@ import PropTypes from "prop-types"
 import "./layout.css"
 import Header from "./header"
 
-const Layout = ({ children, fourohfour = false }) => {
+const Layout = ({ children, blurpage = false }) => {
   return (
-    <div id="outerWrapper" className={fourohfour ? "fourohfour" : ""}>
+    <div id="outerWrapper" className={blurpage ? "blurpage" : ""}>
       <div id="wrapper">
         <Header />
-
-        {children}
-
+        <main>{children}</main>
         <footer id="footer">
           <div id="copyrights">
             <div className="container clearfix">
