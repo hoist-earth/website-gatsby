@@ -39,6 +39,7 @@ const Build = ({ data, location }) => {
     return moment().diff(episode.node.stream_date) < 0
   })
   const videos = data.episodes.edges.filter(episode => {
+    if (!episode.node.episode) return false
     return (
       moment().diff(episode.node.stream_date) > 0 && episode.node.aired_date
     )
@@ -59,6 +60,7 @@ const Build = ({ data, location }) => {
           </p>
           <h3>Upcoming Streams</h3>
           <div className="episodes">
+            {streams.length === 0 && <p>There are no upcoming streams.</p>}
             {streams.map(stream => (
               <div className="episode">
                 <div className="description">
